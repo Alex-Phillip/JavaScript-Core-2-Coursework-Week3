@@ -157,3 +157,8 @@ body {
     max-height: 80px;
   }
 }
+
+
+#image {
+  height: 50%;
+}
