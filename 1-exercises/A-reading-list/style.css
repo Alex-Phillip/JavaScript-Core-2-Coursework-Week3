@@ -159,6 +159,12 @@ body {
 }
 
 
-#image {
-  height: 50%;
+/* Background colours */
+
+.redBackground {
+  background-color: red;
+}
+
+.greenBackground {
+  background-color: green;
 }
