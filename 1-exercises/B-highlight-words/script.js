@@ -1,29 +1,40 @@
 function highlightWords(paragraph, colours) {
-//link to "content" div
+// //link to "content" div
   let contentDiv = document.getElementById("content");
-//create a <p> element
+// //create a <p> element
   let paragraphElement = document.createElement("p");
-//create a <select> element
-  let selectElement = document.createElement("select");
-//create an <option> element
-  let optionElement = document.createElement("option");
-//create a <span> element
-  let spanElement = document.createElement("span");
-//turn "paragraph" variable into an array
-  paragraph.split(" ");
+// //create a <select> element
+  let dropdown = document.createElement("select");
+// //turn "paragraph" variable into an array
+  let splitWords = paragraph.split(" ");
 
 //iterate over "colours" array
   for (let i = 0; i < colours.length; i++) {
+//create an <option> element
+let optionElement = document.createElement("option");
+//set text of <option> element
+    optionElement.innerText = colours[i];
 //create an <option> element inside each <select> element for each item in "colours" array
-    selectElement.appendChild(optionElement);
+    dropdown.appendChild(optionElement);
   }
-//iterate over "paragraph" array
-  for (index = 0, index < paragraph.length; index++) {
+
+  console.log("hello")
+// iterate over "splitWords" array
+  for (i = 0; i < splitWords.length; i++) {
+//create a <span> element
+  let spanElement = document.createElement("span");
 //set text content of <span> element 
-    spanElement.innerText = `${paragraph[i] }`;
+    spanElement.innerText = `${splitWords[i]} `;
 //append <span> element to <p> element
     paragraphElement.appendChild(spanElement);
+//add event listener to <span> element
+    spanElement.addEventListener("click", (event) => {
+      console.log(event);
+    });
   };
+
+contentDiv.appendChild(dropdown);
+contentDiv.appendChild(paragraphElement);
 }
 
 const paragraph =

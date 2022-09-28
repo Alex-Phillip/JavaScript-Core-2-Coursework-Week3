@@ -1,34 +1,34 @@
 function readingList(books) {
   //link to "content" div
   let contentDiv = document.getElementById("content");
-  //create new <p> element
-  let paragraph = document.createElement("p");
-  //create new <img> element
-  let image = document.createElement("img");
   //create new <ul> element
   let unorderedList = document.createElement("ul");
-  //create new <li> element
-  let list = document.createElement("li");
 
   //iterate over the "books" array
   for (i = 0; i < books.length; i++) {
+  //create new <p> element
+    let paragraph = document.createElement("p");
   //set text content of <p> element
     paragraph.innerText = `${books[i].title} by ${books[i].author}`;
+  //create new <li> element
+  let listItem = document.createElement("li");
   //append text content to <li> element
-    list.appendChild(paragraph);
+    listItem.appendChild(paragraph);
+  //create new <img> element
+    let image = document.createElement("img");
   //set content of <img> element
     image.src = `${books[i].bookCoverImage}`;
   //append image content to <li> element
-    list.appendChild(image);
+    listItem.appendChild(image);
   //if statement to check if book has been read (true or false)
     (books[i].alreadyRead === true)
-    ? list.style.backgroundColor = "green"
-    : list.style.backgroundColor = "red";
+    ? listItem.style.backgroundColor = "green"
+    : listItem.style.backgroundColor = "red";
   //append <li> element to <ul> element
-    unorderedList.appendChild(list);
+    unorderedList.appendChild(listItem);
+    }
   //append <ul> element to "content" div
     contentDiv.appendChild(unorderedList);
-    }
   };
 
 const books = [
